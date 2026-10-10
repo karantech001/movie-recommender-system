@@ -1,149 +1,114 @@
-# 🎬 Movie Recommender System Using Machine Learning
+<div align="center">
 
-<p align="center">
-  <img src="movie-recommender-banner.png" alt="Movie Recommender System Project Banner" width="100%">
-</p>
+<img src="assets/movies recommender system.jpeg" alt="Movie Recommendation System banner" width="100%" />
 
-<p align="center">
-  <b>Discover your next favorite movie with Machine Learning.</b>
-</p>
+# 🎬 Movie Recommendation System
 
-<p align="center">
-  A content-based movie recommendation web application built using Python and Streamlit.
-</p>
+### Content-Based Movie Recommendations with Python and Streamlit
+
+Discover movies similar to a title you like, with movie posters retrieved through the TMDB API.
+
+[GitHub Repository](https://github.com/karantech001/movie-recommender-system) · Python · Pandas · Streamlit · TMDB API
+
+</div>
 
 ---
 
-## 📌 Project Overview
+## 📌 Overview
 
-The **Movie Recommender System** is a Machine Learning project designed to help users discover movies similar to their selected movie.
+This project is an end-to-end machine learning application that recommends movies similar to a movie selected by the user. It combines precomputed movie/recommendation data with a Streamlit interface and uses The Movie Database (TMDB) API to retrieve movie poster images.
 
-The application analyzes movie-related information, including genres, keywords, cast, crew, and other available features, to identify similar movies and generate recommendations.
+The project workflow covers dataset collection, data understanding, preprocessing, exploratory data analysis (EDA), feature preparation, recommendation logic, web-app development, API integration, and deployment.
 
-The project uses Python for data processing and recommendation logic, Streamlit for the interactive web interface, and The Movie Database (TMDB) API to retrieve movie posters.
+> **Implementation note:** The Streamlit app loads saved movie and similarity data. The exact preprocessing steps, feature representation, and similarity metric should be confirmed from the notebook or code that generated those files.
 
 ## ✨ Features
 
-- 🎥 **Movie Recommendations:** Get recommendations based on a selected movie.
-- 🧠 **Machine Learning:** Uses a content-based similarity approach.
-- 🖼️ **Movie Posters:** Fetches movie posters through the TMDB API.
-- 🔎 **Interactive Interface:** Select a movie and view recommended titles.
-- ⚡ **Fast Recommendations:** Uses precomputed similarity data.
-- 🌐 **Web Application:** Built with Streamlit.
-- ☁️ **Cloud Deployment:** Hosted using Streamlit Community Cloud.
+- Select a movie from the available movie list.
+- Get recommendations for similar movie titles.
+- Display movie posters through the TMDB API.
+- Use an interactive Streamlit web interface.
+- Load precomputed movie and similarity data instead of rebuilding the model at every app launch.
 
-## 🧠 Machine Learning Approach
+## 🧰 Tech Stack
 
-This project follows a **content-based movie recommendation approach**.
+| Tool / Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Pandas | Data loading and data preparation |
+| Jupyter Notebook | Dataset exploration and experimentation |
+| Content-based recommendation | Recommend titles based on movie-content similarity |
+| Streamlit | Interactive web application |
+| Requests | HTTP requests to the TMDB API |
+| TMDB API | Movie poster retrieval |
+| Pickle / saved data files | Load precomputed movie and similarity data |
+| Git and GitHub | Version control and source-code hosting |
+| Streamlit Community Cloud | Potential hosting option for deployment |
 
-The recommendation workflow includes:
+## 🔄 End-to-End Project Workflow
 
-1. **Data Collection:** Load the TMDB 5000 Movies and Credits datasets.
-2. **Data Integration:** Merge movie and credits information.
-3. **Data Preprocessing:** Extract and prepare relevant movie attributes.
-4. **Feature Engineering:** Combine selected movie features to represent movie content.
-5. **Similarity Calculation:** Compare movie representations to identify similar titles.
-6. **Recommendation Generation:** Retrieve movies with the highest similarity to the selected movie.
-7. **Poster Integration:** Use the TMDB API to display movie posters in the application.
+### 1. Dataset Collection
 
-The recommendation method is based on movie content rather than users' personal ratings or viewing histories.
-
-## 📊 Dataset
-
-The project uses two datasets:
+For the model-development workflow, the project can use the following public Kaggle datasets:
 
 - **TMDB 5000 Movies Dataset**
 - **TMDB 5000 Credits Dataset**
 
-The datasets contain movie information such as titles, genres, keywords, cast, crew, popularity, and plot descriptions.
+Dataset source: [TMDB 5000 Movie Dataset — Kaggle](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
 
-The merged dataset contains approximately 4,809 rows and 23 columns before further processing.
+The datasets include movie metadata and credits information such as titles, genres, keywords, cast, crew, and overviews where available. Confirm that the datasets used to generate your saved model files match the files you download.
 
-## 🛠️ Technologies Used
+### 2. Load and Understand the Data
 
-| Technology | Purpose |
-|---|---|
-| Python | Core programming language |
-| Pandas | Data manipulation and preprocessing |
-| NumPy | Numerical operations |
-| Scikit-learn | Machine Learning and similarity-related processing |
-| Streamlit | Interactive web application |
-| Requests | API communication |
-| TMDB API | Movie poster and movie information retrieval |
-| Pickle | Saving and loading processed data |
-| Git & GitHub | Version control and project hosting |
-| Streamlit Community Cloud | Application deployment |
+Use Pandas in a Jupyter Notebook to load the CSV files and inspect:
 
-## 🖥️ Application Workflow
+- Rows, columns, data types, and column names
+- Missing values and duplicate records
+- Available movie metadata and credits fields
+- The key used to relate the movies and credits tables
 
-1. Open the web application.
-2. Select a movie from the available movie list.
-3. Click the recommendation button.
-4. View the recommended movies and their posters.
+### 3. Data Preprocessing
 
-## 🚀 Run the Project Locally
+Prepare the data used by the recommender. Depending on the actual notebook, this may include merging the datasets, selecting relevant columns, parsing fields such as genres or cast, handling missing values, removing duplicates, and normalizing text.
 
-### 1. Clone the Repository
+### 4. Exploratory Data Analysis (EDA)
 
-```bash
-git clone https://github.com/karantech001/movie-recommender-system.git
-```
+Explore the available data to understand movie characteristics. Suitable analyses may include genre distribution, release-year distribution, missing-value summaries, and popularity or vote distributions where those fields exist.
 
-### 2. Open the Project Folder
+### 5. Feature Engineering
 
-```bash
-cd movie-recommender-system
-```
+Prepare the movie attributes used by the recommendation model. The selected features and text-processing approach must match the code that generated the saved similarity data; do not assume a specific vectorizer or metric without checking that code.
 
-### 3. Install Dependencies
+### 6. Recommendation Model
 
-```bash
-pip install -r requirements.txt
-```
+The project uses a **content-based recommendation approach**: the application returns movies related to the title selected by the user, based on precomputed movie/similarity data. The exact similarity metric and feature-generation details should be documented from the model-generation code.
 
-### 4. Configure the TMDB API Key
+### 7. Save and Load Model Data
 
-Create a folder named `.streamlit` in the project directory. Inside it, create a file named `secrets.toml`.
+The current application repository uses saved data files, including `movie_dict.pkl` and the split similarity files. These files must remain compatible with the loading logic in `app.py`.
 
-Add your own TMDB API key:
+### 8. Streamlit Web Application
 
-```toml
-TMDB_API_KEY = "YOUR_TMDB_API_KEY"
-```
+The app provides a movie-selection interface and displays recommendations. Poster images are fetched using TMDB API requests.
 
-**Important:** Never upload your real API key or `secrets.toml` file to a public GitHub repository.
+### 9. TMDB API Integration
 
-### 5. Run the Application
+Configure your API key through Streamlit Secrets or a local secrets file. Never put a real API key directly in source code or commit it to a public repository.
 
-```bash
-streamlit run app.py
-```
+### 10. Deployment
 
-The application will open in your browser.
+The repository can be deployed to [Streamlit Community Cloud](https://share.streamlit.io/) if the app and its data files fit the platform's current requirements. After deployment, test the app and add the **actual** public app URL below.
 
-## ☁️ Deployment
+**Live Demo:** `Add your deployed Streamlit URL here`
 
-The application can be deployed using Streamlit Community Cloud.
-
-1. Connect your GitHub account.
-2. Select this repository: `karantech001/movie-recommender-system`.
-3. Select the `main` branch.
-4. Set the main file path to `app.py`.
-5. Add `TMDB_API_KEY` in the app's Secrets settings.
-6. Deploy the application.
-
-**Live Demo:** [Open the Movie Recommender System](https://movie-recommender-system-karankr.streamlit.app/)
-
-Replace `YOUR_STREAMLIT_APP_URL` with your actual deployed Streamlit application URL.
-
-## 📁 Project Structure
+## 📁 Repository Structure
 
 ```text
 movie-recommender-system/
-│
 ├── app.py
 ├── movie_dict.pkl
 ├── requirements.txt
+├── split_similarity.py
 ├── similarity.part000
 ├── similarity.part001
 ├── similarity.part002
@@ -153,51 +118,116 @@ movie-recommender-system/
 ├── similarity.part006
 ├── similarity.part007
 ├── similarity.part008
-├── split_similarity.py
+├── assets/
+│   └── movies recommender system.jpeg
 ├── .gitattributes
 ├── .gitignore
 └── README.md
 ```
 
-The `.streamlit/secrets.toml` file contains the private API key and should not be committed to GitHub.
+This tree reflects the project files discussed for this repository. Keep it synchronized with the files actually committed to GitHub. Add screenshots only after saving the real app screenshots in the repository.
 
-## 🎯 Project Objectives
+## 💻 Run Locally
 
-- Apply Machine Learning concepts to a real-world recommendation problem.
-- Practice data preprocessing and feature engineering.
-- Build an interactive application using Python.
-- Integrate an external API into a web application.
-- Deploy a Machine Learning project to the cloud.
+### 1. Clone the repository
 
-## 🔮 Future Improvements
+```bash
+git clone https://github.com/karantech001/movie-recommender-system.git
+cd movie-recommender-system
+```
 
-- Add movie filtering by genre and release year.
-- Display movie ratings and additional details.
-- Improve recommendation quality through feature engineering.
-- Add user preferences and personalized recommendations.
-- Optimize application performance and data loading.
+### 2. Create and activate a virtual environment (recommended)
+
+**Windows PowerShell:**
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+If PowerShell blocks activation, you can run the commands from Command Prompt using `.venv\Scripts\activate.bat` instead.
+
+### 3. Install dependencies
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+### 4. Configure the TMDB API key
+
+Create `.streamlit/secrets.toml` in the project directory:
+
+```toml
+TMDB_API_KEY = "YOUR_TMDB_API_KEY"
+```
+
+Replace the placeholder with your own TMDB API key. Make sure `.streamlit/secrets.toml` is excluded by `.gitignore` and never commit the real key.
+
+### 5. Start the application
+
+```bash
+streamlit run app.py
+```
+
+Open the local URL shown in the terminal. If the app reports missing similarity data, verify that every required `similarity.part000` through `similarity.part008` file exists and that the loader in `app.py` matches the split-file format.
+
+## ☁️ Streamlit Community Cloud Deployment
+
+1. Push the project to GitHub.
+2. Open [Streamlit Community Cloud](https://share.streamlit.io/) and connect your GitHub account.
+3. Select this repository, the correct branch, and `app.py` as the entry point.
+4. Add `TMDB_API_KEY` in the app's Secrets settings.
+5. Deploy and check the logs if startup fails.
+6. Test movie selection, recommendation results, poster loading, and API-error handling.
+7. Replace the Live Demo placeholder in this README with the real deployment URL.
+
+## 🔐 Security and Notes
+
+- Never publish `TMDB_API_KEY` or `.streamlit/secrets.toml`.
+- Do not include private credentials in screenshots, notebooks, or commit history.
+- Only list libraries and model techniques as implemented when they are present in the actual code and dependency files.
+- Large saved similarity files may require Git LFS or another storage strategy, depending on repository and hosting limits.
+- TMDB API access and poster availability depend on the API service and its terms.
+
+## 🧪 Testing Checklist
+
+- [ ] Required movie data files are present.
+- [ ] The app starts locally with `streamlit run app.py`.
+- [ ] The movie dropdown or selection control loads correctly.
+- [ ] Recommendations appear for a valid movie selection.
+- [ ] TMDB posters load when API access is available.
+- [ ] Missing posters or API errors do not crash the app.
+- [ ] The deployed app starts and works from a public browser.
+- [ ] No API key or private secret is committed to GitHub.
+
+## 🚀 Future Improvements
+
+- Add genre and release-year filters.
+- Display more movie information, such as overview, release date, and ratings.
+- Improve search and user-interface accessibility.
+- Add automated tests for recommendation and API behavior.
+- Evaluate recommendation quality with suitable offline metrics.
+- Optimize loading and storage of the precomputed similarity data.
+- Add user preference features for more personalized results.
 
 ## 👨‍💻 Developer
 
-**Karan Kumar**
+**Karan Kumar**  
+BCA Graduate — Artificial Intelligence & Data Science
 
-BCA Graduate | AI & Data Science
+- **GitHub:** [karantech001](https://github.com/karantech001)
+- **Project Repository:** [movie-recommender-system](https://github.com/karantech001/movie-recommender-system)
 
-**Areas of Interest:** Machine Learning, Data Science, Artificial Intelligence, and Python Development.
+## 🙏 Acknowledgements
 
-**GitHub Repository:**  
-https://github.com/karantech001/movie-recommender-system
-
----
-
-## 📄 Acknowledgements
-
-- [TMDB](https://www.themoviedb.org/) for movie-related data and poster information.
-- [Streamlit](https://streamlit.io/) for the web application framework.
-- [Scikit-learn](https://scikit-learn.org/) for Machine Learning tools.
+- [Kaggle](https://www.kaggle.com/) for dataset hosting
+- [The Movie Database (TMDB)](https://www.themoviedb.org/) for movie metadata and poster API
+- [Streamlit](https://streamlit.io/) for the web application framework
 
 ---
 
-<p align="center">
-  <b>Built with Python, Machine Learning, and Streamlit ❤️</b>
-</p>
+<div align="center">
+
+**Built with Python, Machine Learning, and Streamlit** 🎬
+
+</div>
