@@ -1,0 +1,9 @@
+
+.streamlit/secrets.toml
+.env
+.venv/
+venv/
+__pycache__/
+.idea/
+similarity.pkl
+similarity_combined.pkl
