@@ -1,6 +1,6 @@
  <div align="center">
 
-<img src="assets/movies-recommender-system.jpeg.jpeg" alt="Movie Recommendation System Banner" width="100%" />
+<img src="movies-recommender-system.jpeg.jpeg" alt="Movie Recommendation System Banner" width="100%" />
 
 # 🎬 Movie Recommendation System
 
