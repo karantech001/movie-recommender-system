@@ -1,4 +1,4 @@
-<div align="center">
+ <div align="center">
 
 <img src="assets/movies recommender system.jpeg" alt="Movie Recommendation System banner" width="100%" />
 
@@ -6,11 +6,21 @@
 
 ### Content-Based Movie Recommendations with Python and Streamlit
 
-Discover movies similar to a title you like, with movie posters retrieved through the TMDB API.
+Discover similar movies with an interactive recommendation system and movie posters powered by the TMDB API.
 
-[GitHub Repository](https://github.com/karantech001/movie-recommender-system) · Python · Pandas · Streamlit · TMDB API
+[🚀 **Live Demo**](https://movie-recommender-system-karankr.streamlit.app/) · [💻 **GitHub Repository**](https://github.com/karantech001/movie-recommender-system)
+
+**Python** · **Pandas** · **Machine Learning** · **Streamlit** · **TMDB API**
 
 </div>
+
+---
+
+## 🚀 Live Project
+
+**Try the application:** https://movie-recommender-system-karankr.streamlit.app/
+
+
 
 ---
 
